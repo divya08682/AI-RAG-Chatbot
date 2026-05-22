@@ -1,9 +1,17 @@
+import os
+from dotenv import load_dotenv
 from groq import Groq
 
-client = Groq(
-    api_key="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"
-)
+# Load .env file
+load_dotenv()
 
+# Get API key
+api_key = os.getenv("GROQ_API_KEY")
+
+# Create Groq client
+client = Groq(api_key=api_key)
+
+# Send message
 chat_completion = client.chat.completions.create(
     messages=[
         {
@@ -14,4 +22,5 @@ chat_completion = client.chat.completions.create(
     model="llama-3.1-8b-instant",
 )
 
+# Print response
 print(chat_completion.choices[0].message.content)
