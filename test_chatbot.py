@@ -6,7 +6,7 @@ from groq import Groq
 load_dotenv()
 
 # Get API key
-api_key = os.getenv("GROQ_API_KEY")
+api_key = os.getenv("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")
 
 # Create Groq client
 client = Groq(api_key=api_key)
